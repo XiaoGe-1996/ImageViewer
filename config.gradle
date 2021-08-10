@@ -1,0 +1,33 @@
+ext.versions = [
+        'versionCode'             : 1,
+        'versionName'             : "1.0.0",
+        'compileSdk'              : 30,
+        'minSdk'                  : 16,
+        'targetSdk'               : 30,
+        'androidx_version'        : "1.1.0",
+        'material_version'        : "1.2.0",
+        'constraintlayout_version': "2.0.4",
+        'glideVersion'            : "4.12.0",
+        'buildTools'              : '30.0.3'
+]
+
+ext.deps = [
+        'junit'  : 'junit:junit:4.12',
+
+        'support': [
+                'appcompat'       : "androidx.appcompat:appcompat:${versions.androidx_version}",
+                'material'        : "com.google.android.material:material:${versions.material_version}",
+                "legacy"          : "androidx.legacy:legacy-support-v4",
+                "constraintlayout": "androidx.constraintlayout:constraintlayout:${versions.constraintlayout_version}",
+        ],
+
+        'glide'  : [
+                'glide'    : "com.github.bumptech.glide:glide:${versions.glideVersion}",
+                'processor': "com.github.bumptech.glide:compiler:${versions.glideVersion}"
+        ],
+
+        'test'   : [
+                'runner'  : 'com.android.support.test:runner:1.0.2',
+                'espresso': 'com.android.support.test.espresso:espresso-core:3.0.2'
+        ],
+]

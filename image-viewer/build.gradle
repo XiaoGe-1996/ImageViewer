@@ -1,0 +1,53 @@
+apply plugin: 'com.android.library'
+
+def compileSdk = versions.compileSdk
+def minSdk = versions.minSdk
+def targetSdk = versions.targetSdk
+def buildTools = versions.buildTools
+def verCode = versions.versionCode
+def verName = versions.versionName
+
+android {
+    compileSdkVersion compileSdk
+    buildToolsVersion buildTools
+
+    defaultConfig {
+        minSdkVersion minSdk
+        targetSdkVersion targetSdk
+        versionCode verCode
+        versionName verName
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    sourceSets {
+        def dirs = ['p_scaleimageview', 'p_progressview']
+        main {
+            dirs.each { dir ->
+                java.srcDir("src/${dir}/main/java")
+                res.srcDir("src/${dir}/main/res")
+            }
+        }
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation deps.junit
+    androidTestImplementation deps.test.runner
+    androidTestImplementation deps.test.espresso
+
+    implementation deps.support.appcompat
+}
+

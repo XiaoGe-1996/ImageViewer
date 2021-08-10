@@ -1,0 +1,3 @@
+include ':image-viewer'
+include ':app'
+rootProject.name = "ImageViewer"
