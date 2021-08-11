@@ -1,6 +1,6 @@
 <h1>ImageViewer</h1>
 
-!!!!!! 由于https://dl.bintray.com/网站被禁用；ImageViewer原始作者没有做相关项目迁移，所以我这边将该项目迁移值jitPack。
+!!!!!! 由于https://dl.bintray.com/ 网站被禁用。ImageViewer原始作者没有做相关项目迁移，所以我这边将该项目迁移值jitPack。
 原项目地址：https://github.com/albert-lii/ImageViewer
 
 <h2>关于</h2>
@@ -26,9 +26,25 @@
 - [使用方法](#5)
 - [超巨图加载解决方案](#6)
 
-<h2>推荐</h2>
+<h2 id="4">添加依赖</h2> 
 
-- [AutoGridView][AutoGridView] 宫格控件，QQ空间九宫格、普通宫格模式、点击添加照片...
+- Gradle
+```Java
+   Step 1:
+
+   allprojects {
+       repositories {
+           ...
+           maven { url "https://jitpack.io" }
+       }
+    }
+    
+    
+   Step 2:
+   dependencies {
+	        implementation 'com.github.XiaoGe-1996:ImageViewer:1.0.0'
+	}
+```
 
 <h2>项目演示</h2>
 
@@ -72,26 +88,6 @@ loadIndexUI(@NonNull IndexUI indexUI)
 
 ```java
 loadProgressUI(@NonNull ProgressUI progressUI)
-```
-
-<h2 id="4">添加依赖</h2> 
-
-- Gradle
-```Java
-   Step 1:
-
-   allprojects {
-       repositories {
-           ...
-           maven { url "https://jitpack.io" }
-       }
-    }
-    
-    
-   Step 2:
-   dependencies {
-      compile 'indi.liyi.view:image-viewer:3.0.1'
-   }
 ```
 
 ### XML 中添加 ImageViewer
@@ -160,8 +156,7 @@ imageViewer.overlayStatusBar(false) // ImageViewer 是否会占据 StatusBar 的
 
 1. 因为可以自定义图片加载方法，在加载图片前可以先压缩图片
 2. 项目内部目前使用的图片缩放控件为PhotoView，可以将PhotoView用以下控件代替：
-
    - 使用 [SubsamplingScaleImageView](SubsamplingScaleImageView) 代替 PhotoView（推荐）
    - 或者使用 [BigImageView](BigImageView) 代替 PhotoView
 
-
+-------------------ENd----------------------
