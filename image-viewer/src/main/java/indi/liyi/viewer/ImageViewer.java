@@ -455,9 +455,6 @@ public class ImageViewer extends FrameLayout implements ViewPager.OnPageChangeLi
      * 配置 item
      */
     private void configureItem(final int position, final ImageDrawee drawee) {
-        if (position >= mSourceList.size()) {
-            return;
-        }
         drawee.setTag(position);
         if (mMaxScale > 0) {
             drawee.setMaxScale(mMaxScale);
@@ -480,6 +477,9 @@ public class ImageViewer extends FrameLayout implements ViewPager.OnPageChangeLi
             public void onLoadSucceed(Object source) {
                 drawee.hideProgressUI();
                 drawee.setImage(source);
+                if (position >= mSourceList.size()) {
+                    return;
+                }
                 if (mSourceList.get(position).getImageWidth() == 0 ||
                         mSourceList.get(position).getImageHeight() == 0) {
                     Drawable drawable = drawee.getImageView().getDrawable();
